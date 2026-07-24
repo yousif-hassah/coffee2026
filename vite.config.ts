@@ -12,8 +12,7 @@ export default defineConfig({
     // nitro/vite builds from this
     server: { entry: "server" },
   },
-  // Disable nitro SSR plugin — nitro@3.0.260603-beta crashes on Vite 6 because
-  // it calls `this.meta` inside the `config` hook where it is not available.
-  // The app runs as a client-side SPA (Supabase handles data), so SSR is not needed.
-  nitro: false,
+  nitro: {
+    preset: "netlify",
+  },
 });
